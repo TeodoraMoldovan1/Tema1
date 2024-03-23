@@ -15,12 +15,6 @@ namespace AnimalSounds
             animalSounds[type] = sound;
         }
 
-        // Returnarea tuturor elementelor din dictionar
-        public Dictionary<string, string> GetAnimalSounds()
-        {
-            return animalSounds;
-        }
-
         // Metoda pentru a obtine toate tipurile de animale - cheile dictionarului
         public IEnumerable<string> GetAnimalTypes()
         {
