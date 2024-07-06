@@ -1,5 +1,5 @@
 ﻿using System;
-using AnimalSounds;
+using Tema1.Base;
 
 namespace Tema1
 {
@@ -7,34 +7,11 @@ namespace Tema1
     {
         static void Main(string[] args)
         {
-            AnimalManager animalManager = new AnimalManager();
-            PopulateAnimalSounds(animalManager);
-
-            Console.WriteLine("Sunete de animale");
-            DisplayAnimalSounds(animalManager);
-            
-            string soundOfElephant = animalManager.GetSound("Elefant");
-            Console.WriteLine($"Elefantul face sunetul: { soundOfElephant}");
-
-            Console.ReadKey();
-        }
-
-        static void PopulateAnimalSounds(AnimalManager animalManager)
-        {
-            animalManager.AddAnimal("Caine", "Ham");
-            animalManager.AddAnimal("Pisica", "Miau");
-            animalManager.AddAnimal("Vaca", "Muu");
-            animalManager.AddAnimal("Pui", "Piu");
-            animalManager.AddAnimal("Rata", "Mac");
-            animalManager.AddAnimal("Leu", "Roar");
-        }
-
-        static void DisplayAnimalSounds(AnimalManager animalManager)
-        {
-            foreach (var animalType in animalManager.GetAnimalTypes())
+            foreach (IAnimal animal in AnimalFactory.GetAnimals())
             {
-                Console.WriteLine($"{animalType} face sunetul: {animalManager.GetSound(animalType)}");
+                animal.MakeSound();
             }
+            Console.ReadKey();
         }
     }
 }
